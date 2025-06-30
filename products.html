@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N&S Parfum - المنتجات</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+  <header>
+    <div class="logo" id="logo">N&S Parfum</div>
+    <nav id="main-nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="content.html">المحتوى</a>
+      <a href="products.html" class="active">المنتجات</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="cart.html">السلة <span id="cart-count">0</span></a>
+    </nav>
+    <div class="icons">
+      <span id="mode-switch" title="تبديل الوضع الليلي/النهاري">🌙</span>
+      <span id="menu-toggle" title="قائمة">☰</span>
+    </div>
+  </header>
+
+  <div id="sidebar">
+    <div class="close-btn" id="close-sidebar">×</div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="content.html">المحتوى</a>
+      <a href="products.html" class="active">المنتجات</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="cart.html">السلة <span id="cart-count-sidebar">0</span></a>
+    </nav>
+  </div>
+
+  <main style="max-width: 1200px; margin: 80px auto 60px; padding: 0 15px;">
+    <h1 style="color: var(--baby-blue); margin-bottom: 30px; text-align: center;">منتجاتنا</h1>
+
+    <section class="filter-section">
+      <div class="filters">
+        <select id="gender-filter" aria-label="تصفية حسب الجنس">
+          <option value="all">الكل</option>
+          <option value="women">نساء</option>
+          <option value="men">رجال</option>
+        </select>
+
+        <select id="season-filter" aria-label="تصفية حسب الموسم">
+          <option value="all">الكل</option>
+          <option value="summer">صيفي</option>
+          <option value="winter">شتوي</option>
+          <option value="spring">ربيعي</option>
+          <option value="fall">خريفي</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="products-section">
+      <div id="products-container" class="products-container"></div>
+    </section>
+
+  </main>
+
+  <button id="back-to-top" title="العودة للأعلى">⬆</button>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/Dior" target="_blank" aria-label="فيسبوك ديور">📘</a>
+      <a href="https://www.instagram.com/dior" target="_blank" aria-label="إنستغرام ديور">📸</a>
+      <a href="https://twitter.com/DIOR" target="_blank" aria-label="تويتر ديور">🐦</a>
+    </div>
+    <div class="footer-text">
+      <p>&copy; 2025 N&S Parfum. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>N&S Parfum - الرئيسية</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <link rel="icon" href="images/favicon.ico" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <div id="welcome-message">أهلاً بك في N&S Parfum - وجهتك الرسمية لعطور ديور الفاخرة!</div>
+
+    <header>
+        <a href="content.html" class="logo" id="logo">N&S Parfum</a>
+        
+        <nav id="main-nav">
+            <a href="products.html" class="nav-icon-link">
+                <i class="fas fa-shopping-bag"></i> المنتجات
+            </a>
+            <a href="cart.html" class="nav-icon-link">
+                <i class="fas fa-shopping-cart"></i> السلة <span id="cart-count">0</span>
+            </a>
+            <a href="login.html" class="nav-icon-link">
+                <i class="fas fa-user-circle"></i> تسجيل الدخول
+            </a>
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="content.html">المحتوى</a>
+            <a href="contact.html">اتصل بنا</a>
+        </nav>
+        
+        <div class="icons">
+            <span id="mode-switch" title="تبديل الوضع الليلي/النهاري">🌙</span>
+            <span id="menu-toggle" title="قائمة">☰</span>
+        </div>
+    </header>
+
+    <div id="sidebar">
+        <div class="close-btn" id="close-sidebar">×</div>
+        <nav>
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="content.html">المحتوى</a>
+            <a href="products.html">المنتجات</a>
+            <a href="contact.html">اتصل بنا</a>
+            <a href="cart.html">السلة <span id="cart-count-sidebar">0</span></a>
+            <a href="login.html">تسجيل الدخول</a>
+        </nav>
+    </div>
+
+    <section class="slider-container">
+        <img src="images/n1.jpg" alt="عطر 1" class="active" />
+        <img src="images/ns2.jpg" alt="عطر 2" />
+        <img src="images/ns3.jpg" alt="عطر 3" />
+        <div class="banner-text-overlay">
+            <span id="typewriter-text" class="typewriter-text"></span>
+        </div>
+    </section>
+
+    <main>
+        <h2 class="section-title">عروض خاصة</h2>
+        <section class="offers-container" id="offers-container">
+            </section>
+
+        <section id="all-products-section">
+            <h2 class="section-title">جميع منتجاتنا</h2>
+            <div class="filters">
+                <select id="gender-filter">
+                    <option value="all">الجنس (الكل)</option>
+                    <option value="men">رجالي</option>
+                    <option value="women">نسائي</option>
+                </select>
+                <select id="season-filter">
+                    <option value="all">الموسم (الكل)</option>
+                    <option value="summer">الصيف</option>
+                    <option value="spring">الربيع</option>
+                    <option value="fall">الخريف</option>
+                    <option value="winter">الشتاء</option>
+                </select>
+            </div>
+            <section class="products-container" id="products-container">
+                </section>
+        </section>
+        <section class="quiz-section">
+            <h3>اكتشف عطرك المثالي!</h3>
+            <form id="quiz-form">
+                <label for="occasion">المناسبة:</label>
+                <select id="occasion" required>
+                    <option value="" disabled selected>اختر المناسبة</option>
+                    <option value="casual">يومية</option>
+                    <option value="formal">رسمية</option>
+                    <option value="party">حفلة</option>
+                </select>
+
+                <label for="scent">نوع الرائحة المفضل:</label>
+                <select id="scent" required>
+                    <option value="" disabled selected>اختر نوع الرائحة</option>
+                    <option value="floral">زهوري</option>
+                    <option value="woody">خشبي</option>
+                    <option value="fresh">منعش</option>
+                    <option value="oriental">شرقي</option>
+                </select>
+
+                <button type="submit">اكتشف عطرك</button>
+            </form>
+            <div id="quiz-result" class="quiz-result"></div>
+        </section>
+
+        <div class="pagination" id="pagination">
+            <button id="prev-page">السابق</button>
+            <button id="next-page">التالي</button>
+        </div>
+    </main>
+    
+    <div id="cart-items-container"></div>
+    <div class="cart-summary">
+        <h3>إجمالي السلة: <span id="cart-total-price">0</span> د.ل</h3>
+        <button id="checkout-button">إتمام الشراء</button>
+    </div>
+    
+    <button id="back-to-top" title="العودة للأعلى">⬆</button>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/Dior" target="_blank" aria-label="فيسبوك ديور"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/dior" target="_blank" aria-label="إنستغرام ديور"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/DIOR" target="_blank" aria-label="تويتر ديور"><i class="fab fa-twitter"></i></a>
+            <a href="mailto:info@n-s-parfum.com" aria-label="البريد الإلكتروني"><i class="fas fa-envelope"></i></a>
+            <a href="#" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="footer-text">
+            <p>&copy; 2025 N&S Parfum. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3 id="modal-product-name"></h3>
+            <p id="modal-product-description"></p>
+            <p class="price" id="modal-product-price"></p>
+        </div>
+    </div>
+
+</body>
+</html>

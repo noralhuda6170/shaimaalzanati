@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>السلة - N&S Parfum</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+
+<div id="top-banner">🛒 هذه هي سلتك - تحقق من مشترياتك قبل الدفع</div>
+<div id="welcome-message">مرحباً بك في صفحة السلة</div>
+
+<header>
+  <div class="logo" id="logo">N&S Parfum</div>
+  <nav id="main-nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="content.html">المحتوى</a>
+    <a href="products.html">المنتجات</a>
+    <a href="contact.html">اتصل بنا</a>
+    <a href="cart.html" class="active">السلة <span id="cart-count">0</span></a>
+  </nav>
+  <div class="icons">
+    <span id="mode-switch" title="تبديل الوضع الليلي/النهاري">🌙</span>
+    <span id="menu-toggle" title="قائمة">☰</span>
+  </div>
+</header>
+
+<div id="sidebar">
+  <div class="close-btn" id="close-sidebar">×</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="content.html">المحتوى</a>
+    <a href="products.html">المنتجات</a>
+    <a href="contact.html">اتصل بنا</a>
+    <a href="cart.html" class="active">السلة <span id="cart-count-sidebar">0</span></a>
+  </nav>
+</div>
+
+<main id="cart-main" style="max-width: 900px; margin: 80px auto 60px; padding: 0 15px;">
+  <h1 style="color: var(--baby-blue); margin-bottom: 20px; text-align: center;">سلتك</h1>
+
+  <div id="cart-container"></div>
+
+  <div id="cart-total-container">
+    المجموع الكلي: <span id="cart-total">0</span> د.ل
+  </div>
+
+  <button id="checkout-btn">إتمام الشراء</button>
+</main>
+
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/Dior" target="_blank" aria-label="فيسبوك ديور">📘</a>
+    <a href="https://www.instagram.com/dior" target="_blank" aria-label="إنستغرام ديور">📸</a>
+    <a href="https://twitter.com/DIOR" target="_blank" aria-label="تويتر ديور">🐦</a>
+  </div>
+  <p class="footer-text">© 2025 N&S Parfum. كل الحقوق محفوظة. نحن المسوق الرسمي لعطور ديور.</p>
+</footer>
+
+</body>
+</html>

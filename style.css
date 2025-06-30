@@ -1,0 +1,932 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- تعريف جميع متغيرات الألوان (CSS Variables) للوضع النهاري (الافتراضي) --- */
+:root {
+    --beige-light: #f9f7f1;
+    --beige-mid: #e6dfd4;
+    --beige-dark: #c9c1b2;
+    --baby-blue: #a3cef1;
+    --white: #ffffff;
+    --black: #222222;
+    --gray-dark: #555555;
+    --gray-light: #dcdcdc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* ألوان المشروع */
+    --body-bg: linear-gradient(135deg, var(--beige-light), var(--beige-mid));
+    --text-color: var(--black);
+    --header-bg: var(--white);
+    --logo-color: var(--baby-blue);
+    --nav-link-color: var(--gray-dark);
+    --nav-link-hover-color: var(--baby-blue);
+    --icon-color: var(--gray-dark);
+    --icon-hover-color: var(--baby-blue);
+    --sidebar-bg: var(--beige-mid);
+    --sidebar-link-color: var(--black);
+    --sidebar-link-hover-color: var(--baby-blue);
+    --card-bg-color: var(--white);
+    --heading-color: var(--baby-blue);
+    --price-color: var(--black);
+    --button-bg-color: var(--baby-blue);
+    --button-text-color: var(--white);
+    --button-hover-bg-color: #85bde9;
+    --banner-text-color: var(--black);
+    --footer-bg: var(--beige-dark);
+    --footer-text-color: var(--gray-dark);
+    --social-link-color: var(--baby-blue);
+    --social-link-hover-color: #569edb;
+    --input-border-color: var(--gray-light);
+    --modal-bg: var(--white);
+    --modal-close-color: var(--baby-blue);
+    --pagination-button-bg: var(--baby-blue);
+    --pagination-button-hover-bg: #85bde9;
+}
+
+body {
+    background: var(--body-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+    padding-top: 50px; /* مسافة لشريط الاعلان العلوي */
+}
+
+/* شريط الإعلان المتدرج */
+#top-banner {
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(270deg, #fceabb, var(--baby-blue), #fceabb);
+    background-size: 600% 600%;
+    animation: gradientShift 20s ease infinite;
+    text-align: center;
+    font-weight: 600;
+    color: var(--banner-text-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ********** تعديل: تثبيت الهيدر في الأعلى ********** */
+header {
+    position: fixed; /* تغيير من sticky إلى fixed */
+    top: 0; /* تثبيته في أعلى الصفحة */
+    left: 0;
+    width: 100%; /* جعله يمتد على عرض الشاشة بالكامل */
+    background: var(--header-bg);
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+header .logo {
+    font-family: 'Playfair Display', serif; /* خط جديد ومميز */
+    font-size: 2.5rem; /* حجم أكبر */
+    font-weight: bold;
+    color: var(--logo-color);
+    cursor: pointer; /* تغيير المؤشر ليدل على أنه رابط */
+    user-select: none;
+    letter-spacing: 2px;
+    transition: color 0.4s ease;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    text-decoration: none; /* إزالة خط الرابط */
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--nav-link-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+    display: flex; /* لترتيب الأيقونة والنص */
+    align-items: center;
+    gap: 5px; /* مسافة بين الأيقونة والنص */
+}
+
+header nav a:hover,
+header nav a.active {
+    color: var(--nav-link-hover-color);
+    font-weight: 700;
+}
+
+/* الأيقونات */
+header .icons {
+    display: flex;
+    gap: 20px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--icon-color);
+    user-select: none;
+    transition: color 0.4s ease;
+}
+
+header .icons:hover {
+    color: var(--icon-hover-color);
+}
+
+#mode-switch:hover {
+    color: #1e90ff;
+}
+
+/* أيقونة القائمة الجانبية */
+#menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--logo-color);
+    transition: color 0.4s ease;
+}
+
+/* القائمة الجانبية */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px;
+    height: 100%;
+    background: var(--sidebar-bg);
+    box-shadow: 3px 0 8px var(--shadow-color);
+    padding: 20px;
+    transition: left 0.3s ease, background 0.4s ease, box-shadow 0.4s ease;
+    z-index: 1500;
+    overflow-y: auto;
+}
+
+#sidebar.show-sidebar {
+    left: 0;
+}
+
+#sidebar .close-btn {
+    font-size: 1.6rem;
+    color: var(--logo-color);
+    cursor: pointer;
+    margin-bottom: 30px;
+    text-align: right;
+    transition: color 0.4s ease;
+}
+
+#sidebar nav a {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--sidebar-link-color);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.4s ease;
+}
+
+#sidebar nav a:hover {
+    color: var(--sidebar-link-hover-color);
+}
+
+/* السلايدر (تم تعديل الأنماط هنا) */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    height: 500px; /* تم زيادة الارتفاع لجعل الصور أكبر */
+    overflow: hidden;
+    margin: 50px auto 40px; /* مسافة بعد الهيدر */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    display: flex; /* لتمكين توسيط النص */
+    justify-content: center; /* لتوسيط النص أفقياً */
+    align-items: center; /* لتوسيط النص عمودياً */
+    margin-top: 100px; /* إضافة مسافة من الأعلى لعدم تداخل الهيدر الثابت */
+}
+
+.slider-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    border-radius: 12px;
+}
+
+.slider-container img.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* طبقة النص فوق السلايدر */
+.banner-text-overlay {
+    position: relative; /* ليكون فوق الصورة */
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+}
+
+.typewriter-text {
+    font-size: 3.5rem; /* حجم الخط */
+    font-weight: bold;
+    color: var(--white); /* لون النص */
+    white-space: nowrap; /* لمنع النص من النزول لسطر جديد */
+    overflow: hidden; /* لإخفاء الجزء غير المكتوب من النص */
+    border-right: 0.15em solid var(--baby-blue); /* المؤشر الوامض */
+    animation: typing 4s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* ظل للنص لزيادة الوضوح */
+    transition: color 0.4s ease, border-color 0.4s ease; /* للانتقال مع الوضع الليلي */
+    display: inline-block; /* مهم لعمل الـ width في أنيميشن typing */
+}
+
+/* Animations for typewriter effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--baby-blue);
+    }
+}
+
+/* --- تعديلات على العنصر main لضمان التباعد والمركزة --- */
+main {
+    max-width: 1200px;
+    margin: 60px auto 60px; /* مسافة علوية وسفلية، وتوسيط أفقي */
+    padding: 0 20px; /* مسافة داخلية من الجانبين للشاشات الصغيرة */
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* الفلاتر */
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.filters select {
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: 1px solid var(--input-border-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease, background 0.4s ease, color 0.4s ease;
+    background: var(--card-bg-color);
+    color: var(--text-color);
+}
+
+.filters select:hover,
+.filters select:focus {
+    border-color: var(--baby-blue);
+    outline: none;
+}
+
+/* --- إضافة تنسيق العنوان الجديد "عروض خاصة" --- */
+.section-title {
+    font-family: 'Great Vibes', cursive; /* خط جميل ومميز */
+    font-size: 3rem; /* حجم كبير للعنوان */
+    font-weight: normal;
+    text-align: center;
+    color: var(--heading-color);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* خط تزييني تحت العنوان */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--baby-blue);
+    border-radius: 2px;
+}
+
+/* عروض البوكسات */
+.offers-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.offer-box {
+    background: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 3px 10px var(--shadow-color);
+    max-width: 280px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.offer-box h4 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: var(--heading-color);
+    transition: color 0.4s ease;
+}
+
+.offer-box p {
+    font-size: 0.9rem;
+    color: var(--nav-link-color);
+    margin-bottom: 10px;
+    min-height: 45px;
+    transition: color 0.4s ease;
+}
+
+.offer-box .price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--price-color);
+    transition: color 0.4s ease;
+}
+
+.offer-box .old-price {
+    text-decoration: line-through;
+    color: #a0a0a0;
+    margin-right: 8px;
+}
+
+.offer-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(163, 206, 241, 0.6);
+}
+
+/* مؤقت العد التنازلي للعروض */
+.offer-box .countdown {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ********** تعديل: عرض منتجين فقط في كل سطر ********** */
+.products-container {
+    display: grid;
+    /* تحديد عدد الأعمدة إلى 2 */
+    grid-template-columns: repeat(2, 1fr);
+    /* استخدام minmax لتحديد حجم عمود مناسب */
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    gap: 25px;
+    padding: 0 0 60px 0;
+    margin-bottom: 40px;
+    justify-content: center; /* لتوسيط المنتجات إذا كان هناك عدد فردي */
+}
+
+.product-box {
+    background: var(--card-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 3px 15px var(--shadow-color);
+    overflow: hidden;
+    padding: 15px;
+    transition: transform 0.3s ease, background 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.product-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(163, 206, 241, 0.6);
+}
+
+/* --- بداية التعديلات والإضافات الخاصة بتأثير الـ Hover --- */
+/* حاوية الصورة والتفاصيل */
+.product-image-container,
+.offer-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* تأكد من أن الحاوية تملأ المساحة */
+}
+
+/* الطبقة التي تحتوي على التفاصيل وتظهر عند الوقوف */
+.product-details-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* خلفية سوداء شفافة */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    opacity: 0; /* مخفي بشكل افتراضي */
+    visibility: hidden; /* مخفي تمامًا */
+    transform: scale(0.8); /* تصغيره قليلاً لإضافة تأثير انتقال */
+    transition: all 0.3s ease-in-out; /* تأثير انتقال سلس */
+}
+
+/* عند الوقوف على حاوية المنتج، أظهر الطبقة */
+.product-box:hover .product-details-overlay,
+.offer-box:hover .product-details-overlay {
+    opacity: 1; /* إظهار الطبقة */
+    visibility: visible;
+    transform: scale(1); /* إعادته إلى حجمه الطبيعي */
+}
+
+/* إخفاء اسم المنتج الأساسي عند الوقوف عليه */
+.product-box:hover h4,
+.offer-box:hover h4 {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* تنسيق عناصر التفاصيل داخل الطبقة */
+.product-details-overlay p {
+    margin: 5px 0;
+}
+
+.product-overlay-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.product-overlay-description {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.product-overlay-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.product-details-overlay .add-to-cart-btn {
+    /* تنسيق زر الإضافة ليناسب الطبقة */
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #f0c14b; /* لون مميز للزر */
+    color: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.product-details-overlay .add-to-cart-btn:hover {
+    background-color: #e0b03b;
+}
+
+/* --- نهاية التعديلات والإضافات الخاصة بتأثير الـ Hover --- */
+
+.product-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.product-box h4 {
+    color: var(--heading-color);
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    text-align: center;
+    transition: color 0.4s ease;
+}
+
+.product-box p {
+    font-size: 0.9rem;
+    color: var(--nav-link-color);
+    flex-grow: 1;
+    text-align: center;
+    transition: color 0.4s ease;
+}
+
+.product-box .price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 8px 0;
+    text-align: center;
+    color: var(--price-color);
+    transition: color 0.4s ease;
+}
+
+.product-box button {
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.product-box button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* الكويز */
+.quiz-section {
+    max-width: 600px;
+    margin: 40px auto 60px;
+    background: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px var(--shadow-color);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.quiz-section h3 {
+    margin-bottom: 20px;
+    color: var(--heading-color);
+    text-align: center;
+    transition: color 0.4s ease;
+}
+
+.quiz-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.quiz-section label {
+    font-weight: 600;
+    color: var(--nav-link-color);
+    margin-bottom: 8px;
+    transition: color 0.4s ease;
+}
+
+.quiz-section select {
+    padding: 8px 15px;
+    border-radius: 6px;
+    border: 1px solid var(--input-border-color);
+    font-size: 1rem;
+    cursor: pointer;
+    background: var(--card-bg-color);
+    color: var(--text-color);
+    transition: border-color 0.3s ease, background 0.4s ease, color 0.4s ease;
+}
+
+.quiz-section button {
+    margin-top: 15px;
+    padding: 12px;
+    background: var(--button-bg-color);
+    border: none;
+    border-radius: 10px;
+    color: var(--button-text-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.quiz-section button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.quiz-result {
+    margin-top: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--heading-color);
+    transition: color 0.4s ease;
+}
+
+/* الرسالة الترحيبية (تم إزالتها من index.html ولكن أبقيت على الأنماط تحسباً) */
+#welcome-message {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 15px 25px;
+    border-radius: 25px;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    font-size: 1.2rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease, background 0.4s ease, color 0.4s ease;
+    z-index: 9999;
+}
+
+#welcome-message.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* الفوتر */
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text-color);
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 3px 10px var(--shadow-color);
+    transition: background 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+footer .social-links {
+    margin-bottom: 15px;
+}
+
+footer .social-links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: var(--social-link-color);
+    font-size: 2.2rem; /* حجم أكبر للأيقونات الجديدة */
+    transition: color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+/* تأثير تحليق جميل على أيقونات التواصل الاجتماعي */
+footer .social-links a:hover {
+    color: var(--social-link-hover-color);
+    transform: translateY(-5px);
+}
+
+footer .social-links a i {
+    font-style: normal;
+    display: inline-block;
+    width: 28px;
+}
+
+footer .footer-text {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--footer-text-color);
+    transition: color 0.4s ease;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--pagination-button-bg);
+    color: var(--button-text-color);
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: var(--pagination-button-hover-bg);
+}
+
+/* نافذة تفاصيل المنتج (مودال) */
+#product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+#product-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--modal-bg);
+    padding: 25px 30px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 6px 15px var(--shadow-color);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: var(--heading-color);
+    text-align: center;
+    transition: color 0.4s ease;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    color: var(--nav-link-color);
+    line-height: 1.5;
+    transition: color 0.4s ease;
+}
+
+.modal-content .price {
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--price-color);
+    text-align: center;
+    margin-bottom: 20px;
+    transition: color 0.4s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.6rem;
+    color: var(--modal-close-color);
+    cursor: pointer;
+    font-weight: 700;
+    transition: color 0.4s ease;
+}
+
+/* أنماط زر العودة للأعلى */
+#back-to-top {
+    display: none; /* مخفي افتراضياً */
+    position: fixed; /* يبقى ثابتاً في الشاشة */
+    bottom: 30px; /* المسافة من الأسفل */
+    right: 30px; /* المسافة من اليمين */
+    z-index: 99; /* يظهر فوق العناصر الأخرى */
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: var(--baby-blue); /* لون الزر */
+    color: white; /* لون النص/الأيقونة */
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%; /* شكل دائري */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+#back-to-top:hover {
+    background-color: var(--button-hover-bg-color); /* لون عند التحويم */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    .filters {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* ********** تعديل: عرض عمود واحد على الشاشات الصغيرة ********** */
+    .products-container {
+        grid-template-columns: 1fr;
+        padding: 0 15px 60px;
+    }
+
+    .offers-container {
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .slider-container {
+        height: 350px; /* ارتفاع أقل للسلايدر على الشاشات الصغيرة */
+        margin-top: 80px; /* تعديل المسافة العلوية للهيدر الثابت */
+    }
+
+    .typewriter-text {
+        font-size: 2.5rem; /* حجم خط أصغر للنص المتحرك */
+    }
+}
+
+@media (max-width: 480px) {
+    #top-banner {
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+
+    .quiz-section {
+        margin: 20px 10px 40px;
+    }
+
+    .product-box h4 {
+        font-size: 1.1rem;
+    }
+
+    .slider-container {
+        height: 250px; /* ارتفاع أقل جداً على الجوالات */
+    }
+
+    .typewriter-text {
+        font-size: 1.8rem; /* حجم خط أصغر جداً للنص المتحرك */
+    }
+}
+
+/* --- أنماط الوضع الليلي (Dark Mode) - يجب أن تكون في نهاية الملف --- */
+body.dark-mode {
+    --body-bg: linear-gradient(135deg, #1f1f1f, #2a2a2a);
+    --text-color: #e0e0e0;
+    --header-bg: #2b2b2b;
+    --logo-color: #6daaf1;
+    --nav-link-color: #b0b0b0;
+    --nav-link-hover-color: #6daaf1;
+    --icon-color: #b0b0b0;
+    --icon-hover-color: #6daaf1;
+    --sidebar-bg: #2b2b2b;
+    --sidebar-link-color: #e0e0e0;
+    --sidebar-link-hover-color: #6daaf1;
+    --card-bg-color: #333333;
+    --heading-color: #6daaf1;
+    --price-color: #a3cef1;
+    --button-bg-color: #6daaf1;
+    --button-text-color: #ffffff;
+    --button-hover-bg-color: #5591d6;
+    --banner-text-color: #e0e0e0;
+    --footer-bg: #1c1c1c;
+    --footer-text-color: #b0b0b0;
+    --social-link-color: #6daaf1;
+    --social-link-hover-color: #5591d6;
+    --input-border-color: #444444;
+    --modal-bg: #333333;
+    --modal-close-color: #6daaf1;
+    --pagination-button-bg: #6daaf1;
+    --pagination-button-hover-bg: #5591d6;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* أنماط الوضع الليلي للنص المتحرك */
+body.dark-mode .typewriter-text {
+    color: #eeeeee; /* لون أفتح للنص في الوضع الليلي */
+    border-color: var(--logo-color); /* لون المؤشر للوضع الليلي */
+}

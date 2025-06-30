@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>N&S Parfum - الرئيسية</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+
+  <div id="top-banner">🔥 عروض خاصة لفترة محدودة على أجمل عطور ديور! 🔥</div>
+  <div id="welcome-message">أهلاً بك في N&S Parfum - وجهتك الرسمية لعطور ديور الفاخرة!</div>
+
+  <header>
+    <div class="logo" id="logo">N&S Parfum</div>
+    <nav id="main-nav">
+      <a href="index.html" class="active">الرئيسية</a>
+      <a href="content.html">المحتوى</a>
+      <a href="products.html">المنتجات</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="cart.html">السلة <span id="cart-count">0</span></a>
+    </nav>
+    <div class="icons">
+      <span id="mode-switch" title="تبديل الوضع الليلي/النهاري">🌙</span>
+      <span id="menu-toggle" title="قائمة">☰</span>
+    </div>
+  </header>
+
+  <div id="sidebar">
+    <div class="close-btn" id="close-sidebar">×</div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="content.html">المحتوى</a>
+      <a href="products.html">المنتجات</a>
+      <a href="contact.html">اتصل بنا</a>
+      <a href="cart.html">السلة <span id="cart-count-sidebar">0</span></a>
+    </nav>
+  </div>
+
+  <div class="slider-container">
+    <img src="images/ns2.jpg" alt="عطر 2" style="animation-delay: 5s" />
+  </div>
+
+  <div class="filters">
+    <select id="gender-filter" aria-label="فلتر حسب الجنس">
+      <option value="all">الكل</option>
+      <option value="men">رجالي</option>
+      <option value="women">نسائي</option>
+    </select>
+
+    <select id="season-filter" aria-label="فلتر حسب الموسم">
+      <option value="all">كل المواسم</option>
+      <option value="spring">ربيع</option>
+      <option value="summer">صيف</option>
+      <option value="fall">خريف</option>
+      <option value="winter">شتاء</option>
+    </select>
+  </div>
+
+  <section class="offers-container" id="offers-container"></section>
+
+  <section class="quiz-section" id="quiz-section">
+    <h3>اختبر ذوقك واختر عطرك المثالي!</h3>
+    <form id="quiz-form">
+      <label for="occasion">المناسبة:</label>
+      <select id="occasion" required>
+        <option value="" disabled selected>اختر المناسبة</option>
+        <option value="casual">يومية</option>
+        <option value="formal">رسمية</option>
+        <option value="party">حفلة</option>
+      </select>
+
+      <label for="scent">نوع الرائحة المفضل:</label>
+      <select id="scent" required>
+        <option value="" disabled selected>اختر نوع الرائحة</option>
+        <option value="floral">زهوري</option>
+        <option value="woody">خشبي</option>
+        <option value="fresh">منعش</option>
+        <option value="oriental">شرقي</option>
+      </select>
+
+      <button type="submit">اكتشف عطرك</button>
+    </form>
+    <div id="quiz-result" class="quiz-result"></div>
+  </section>
+
+  <section class="products-container" id="products-container"></section>
+
+  <div class="pagination" id="pagination">
+    <button id="prev-page">السابق</button>
+    <button id="next-page">التالي</button>
+  </div>
+
+  <footer>
+    <div class="social-links">
+      <a href="https://www.facebook.com/Dior" target="_blank" aria-label="فيسبوك ديور">📘</a>
+      <a href="https://www.instagram.com/dior" target="_blank" aria-label="إنستغرام ديور">📸</a>
+      <a href="https://twitter.com/DIOR" target="_blank" aria-label="تويتر ديور">🐦</a>
+    </div>
+    <p class="footer-text">© 2025 N&S Parfum. كل الحقوق محفوظة. نحن المسوق الرسمي لعطور ديور.</p>
+  </footer>
+
+</body>
+</html>

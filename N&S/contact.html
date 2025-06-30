@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اتصل بنا - N&S Parfum</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="icon" href="images/favicon.ico" />
+</head>
+<body>
+
+<div id="top-banner">📞 نحن هنا لمساعدتك! اتصل بنا اليوم</div>
+<div id="welcome-message">نتطلع لسماعك، لا تتردد بالتواصل معنا</div>
+
+<header>
+  <div class="logo" id="logo">N&S Parfum</div>
+  <nav id="main-nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="content.html">المحتوى</a>
+    <a href="products.html">المنتجات</a>
+    <a href="contact.html" class="active">اتصل بنا</a>
+    <a href="cart.html">السلة <span id="cart-count">0</span></a>
+  </nav>
+  <div class="icons">
+    <span id="mode-switch" title="تبديل الوضع الليلي/النهاري">🌙</span>
+    <span id="menu-toggle" title="قائمة">☰</span>
+  </div>
+</header>
+
+<div id="sidebar">
+  <div class="close-btn" id="close-sidebar">×</div>
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="content.html">المحتوى</a>
+    <a href="products.html">المنتجات</a>
+    <a href="contact.html" class="active">اتصل بنا</a>
+    <a href="cart.html">السلة <span id="cart-count-sidebar">0</span></a>
+  </nav>
+</div>
+
+<main style="max-width: 700px; margin: 80px auto 60px; padding: 0 15px;">
+  <h1 style="color: var(--baby-blue); text-align: center; margin-bottom: 30px;">اتصل بنا</h1>
+
+  <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+    <label for="name">الاسم الكامل:</label>
+    <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل" />
+
+    <label for="email">البريد الإلكتروني:</label>
+    <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني" />
+
+    <label for="phone">رقم الهاتف:</label>
+    <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف (اختياري)" />
+
+    <label for="message">رسالتك:</label>
+    <textarea id="message" name="message" rows="5" required placeholder="اكتب رسالتك هنا"></textarea>
+
+    <button type="submit" style="background: var(--baby-blue); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: bold;">
+      إرسال
+    </button>
+  </form>
+
+  <div id="form-response" style="margin-top: 20px; font-weight: bold; color: var(--baby-blue); text-align: center;"></div>
+
+  <section style="margin-top: 40px; text-align: center; color: var(--gray-dark); font-size: 1rem;">
+    <p>📍 العنوان: شارع التجارة، طرابلس، ليبيا</p>
+    <p>📞 الهاتف: +218 21 123 4567</p>
+    <p>✉ البريد الإلكتروني: info@nsparfum.ly</p>
+  </section>
+</main>
+
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/Dior" target="_blank" aria-label="فيسبوك ديور">📘</a>
+    <a href="https://www.instagram.com/dior" target="_blank" aria-label="إنستغرام ديور">📸</a>
+    <a href="https://twitter.com/DIOR" target="_blank" aria-label="تويتر ديور">🐦</a>
+  </div>
+  <p class="footer-text">© 2025 N&S Parfum. كل الحقوق محفوظة. نحن المسوق الرسمي لعطور ديور.</p>
+</footer>
+
+<script>
+  // تفعيل ارسال الفورم بشكل وهمي (تقدر تضيف فعلية لاحقاً)
+  const form = document.getElementById('contact-form');
+  const responseDiv = document.getElementById('form-response');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    responseDiv.textContent = 'تم استلام رسالتك، شكراً لتواصلك معنا!';
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
